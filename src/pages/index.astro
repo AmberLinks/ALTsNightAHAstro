@@ -1,10 +1,7 @@
 ---
 // src/pages/index.astro
-
-// ステップ2で作成したレイアウトをインポート
 import Layout from '../layouts/Layout.astro';
 
-// レイアウトに渡すタイトル
 const pageTitle = "ALTs夜間動物病院 | 焼津市の犬・猫夜間診療　エキゾチックアニマル専門診療";
 ---
 <Layout title={pageTitle}>
@@ -467,7 +464,7 @@ const pageTitle = "ALTs夜間動物病院 | 焼津市の犬・猫夜間診療　
         // Close dropdown when clicking outside
         window.addEventListener('click', function(e) {
             if (desktopMenuBtn && !desktopMenuBtn.contains(e.target) && desktopMenu && !desktopMenu.contains(e.target)) {
-                if(!desktopMenu.classList.contains('hidden')) {
+                if(desktopMenu && !desktopMenu.classList.contains('hidden')) {
                     desktopMenu.classList.add('hidden');
                 }
             }

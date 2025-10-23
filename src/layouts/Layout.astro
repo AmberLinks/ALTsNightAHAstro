@@ -1,0 +1,115 @@
+---
+// src/layouts/Layout.astro
+
+// Astroコンポーネントは、ページの<head>に<title>を渡すためのPropsを受け取れます
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="google-site-verification" content="v3YQF7PId_r26lSOjccHhBmvAd5sKPHrIQFpMzT5kvc" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <link rel="canonical" href="https://[YOUR_VERCEL_URL]/" />
+    <meta name="description" content="静岡県焼津市のALTs夜間動物病院です。犬・猫の夜間診療、エキゾチックアニマルの専門診療を火・水・木曜日に対応します。静岡市・藤枝市・島田市からもアクセス良好です">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script type_application_ld+json>
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "name": "ALTs夜間動物病院",
+      "description": "静岡県焼津市のALTs夜間動物病院。犬・猫の夜間診療、エキゾチックアニマルの専門診療に対応。",
+      "image": "https://alts-night-ah-astro.vercel.app/logoImage.png",
+      "telephone": "+81-54-631-4757",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "石津１丁目19−２",
+        "addressLocality": "焼津市",
+        "addressRegion": "静岡県",
+        "postalCode": "425-0041",
+        "addressCountry": "JP"
+      },
+      "url": "https://alts-night-ah-astro.vercel.app/",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "18:00",
+          "closes": "22:00"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "34.853032",  
+        "longitude": "138.303978" 
+      }
+    }
+    </script>
+    
+    <meta property="og:url" content="https://alts-night-ah-astro.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ALTs夜間動物病院｜焼津市の夜間診療・エキゾチックアニマル専門診療" />
+    <meta property="og:description" content="静岡県焼津市のALTs夜間動物病院です。犬・猫の夜間診療、エキゾチックアニマルの専門診療に火・水・木曜日に対応します。" />
+    <meta property="og:site_name" content="ALTs夜間動物病院" />
+    <meta property="og:image" content="https://[YOUR_VERCEL_URL]/logoImage.png" />
+    <meta name="twitter:card" content="summary" />
+    
+    <style is:global>
+        /* カスタムカラースキーム */
+        :root {
+            --amber: #D3A257; /* 琥珀色 */
+            --iron: #36454F;  /* 鉄色 */
+            --light-bg: #FFFFFF;
+            --section-bg: #F8F9FA;
+            --text-color: #333;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 112px;
+        }
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+        }
+        /* Tailwind CSSのカスタム設定 */
+        .bg-amber { background-color: var(--amber); }
+        .bg-iron { background-color: var(--iron); }
+        .text-amber { color: var(--amber); }
+        .text-iron { color: var(--iron); }
+        .border-amber { border-color: var(--amber); }
+        .hover\:bg-amber-dark:hover { background-color: #c08c3c; }
+
+        /* ハンバーガーメニューのアニメーション */
+        .hamburger .bar { transition: all 0.3s ease-in-out; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* アコーディオン（よくあるご質問） */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-header.priority {
+             background-color: #FFFBEB; 
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <slot />
+</body>
+</html>

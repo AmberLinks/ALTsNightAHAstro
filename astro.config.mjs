@@ -1,13 +1,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import react from '@astrojs/react'; // (もしReactも使う場合は残しておきます)
+// import react from '@astrojs/react'; // 👈 削除
 
-// https://astro.build/config
 export default defineConfig({
-  // VercelのURL（またはカスタムドメイン）を設定
   site: 'https://alts-night-ah-astro.vercel.app', 
   integrations: [
-    sitemap(),
-    react() // (もしReactも使う場合は残しておきます)
+    sitemap()
+    // react() // 👈 削除
   ]
 });
